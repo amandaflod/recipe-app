@@ -1,11 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+// const mongoose = require('mongoose')
+const mockData = require('./mock-data.json')
 
-// Defines the port the app will run on. Defaults to 8080, but can be 
-// overridden when starting the server. For example:
-//
-//   PORT=9000 npm start
 const port = process.env.PORT || 8080
 const app = express()
 
@@ -13,9 +11,17 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-// Start defining your routes here
+// Routes
 app.get('/', (req, res) => {
   res.send('Hello world')
+})
+
+app.get('/recipes', (req, res) => {
+  res.json(mockData.recipes)
+})
+
+app.get('/recipes/:id', (req, res) => {
+  res.json(mockData.recipes[0])
 })
 
 // Start the server

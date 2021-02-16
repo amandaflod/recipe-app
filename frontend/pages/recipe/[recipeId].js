@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { Layout } from '../../components/Layout'
 
 const Header = styled.h2`
 `
@@ -30,7 +31,7 @@ export default function Page() {
   const [recipe, setRecipe] = useState()
 
   useEffect(() => {
-    fetch('http://localhost:8080/recipes/123')
+    fetch(`http://localhost:8080/recipes/${recipeId}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data))
   }, [recipeId])
@@ -40,23 +41,25 @@ export default function Page() {
   }
 
   return <>
-    <Header>{recipe.title}</Header>
-    <Image src={recipe.imageUrl} />
-    <IngredientsWrap>
-      {recipe.ingredients.map((ingredient) => {
-        return <Ingredient>{ingredient.quantity} {ingredient.product}</Ingredient>
-      })}
-    </IngredientsWrap>
-    <StepsWrap>
-      {recipe.steps.map((step) => {
-        return <Step>{step}</Step>
-      })}
-    </StepsWrap>
-    <TagsWrap>
-      {recipe.tags.map((tag) => {
-        return <Tag>{tag}</Tag>
-      })}
-    </TagsWrap>
+    <Layout>
+      <Header>{recipe.title}</Header>
+      <Image src={recipe.imageUrl} />
+      <IngredientsWrap>
+        {recipe.ingredients.map((ingredient) => {
+          return <Ingredient>{ingredient.quantity} {ingredient.product}</Ingredient>
+        })}
+      </IngredientsWrap>
+      <StepsWrap>
+        {recipe.steps.map((step) => {
+          return <Step>{step}</Step>
+        })}
+      </StepsWrap>
+      <TagsWrap>
+        {recipe.tags.map((tag) => {
+          return <Tag>{tag}</Tag>
+        })}
+      </TagsWrap>
+    </Layout>
   </>
 }
 

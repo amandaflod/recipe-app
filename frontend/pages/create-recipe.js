@@ -14,6 +14,7 @@ const Wrap = styled.div`
   padding: 16px;
   background-color: white;
   margin-top: 50px;
+  margin-bottom: 50px;
 `
 
 const SectionTitle = styled.h2`
@@ -94,7 +95,7 @@ export default function Create() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('http://localhost:8080/create-recipe',
+    fetch('https://amandas-recipe-app.herokuapp.com/create-recipe',
       {
         method: 'POST',
         headers: {

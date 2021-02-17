@@ -12,16 +12,16 @@ const Card = styled.div`
   background-color: white;
   width: 350px;
   margin-top: 20px;
+  padding: 20px;
 `
 
 const Image = styled.img`
+ width: 250px;
+
 `
 const Title = styled.h3`
 `
-const TagsWrap = styled.div`
-`
-const Tag = styled.p`
-`
+
 
 
 export default function Create() {
@@ -29,7 +29,7 @@ export default function Create() {
   const [recipes, setRecipes] = useState()
 
   useEffect(() => {
-    fetch('http://localhost:8080/recipes')
+    fetch('https://amandas-recipe-app.herokuapp.com/recipes')
       .then((res) => res.json())
       .then((data) => setRecipes(data))
   }, [])
@@ -50,11 +50,6 @@ export default function Create() {
               <Card>
                 <Image src={recipe.imageUrl} />
                 <Title>{recipe.title}</Title>
-                <TagsWrap>
-                  {recipe.tags.map((tag) => {
-                    return <Tag>{tag}</Tag>
-                  })}
-                </TagsWrap>
               </Card>
             </Link>
           )

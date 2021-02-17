@@ -5,7 +5,8 @@ import { PageHeader } from 'antd';
 
 const Page = styled.div`
 background-color: #F8F8F8;
-height: 100vh;
+min-height: 100vh;
+height: auto;
 `
 
 const StyledHeader = styled(PageHeader)`

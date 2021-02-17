@@ -31,7 +31,7 @@ export default function Page() {
   const [recipe, setRecipe] = useState()
 
   useEffect(() => {
-    fetch(`http://localhost:8080/recipes/${recipeId}`)
+    fetch(`https://amandas-recipe-app.herokuapp.com/recipes/${recipeId}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data))
   }, [recipeId])

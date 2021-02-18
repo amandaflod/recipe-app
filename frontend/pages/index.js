@@ -46,7 +46,7 @@ export default function Create() {
 
         {recipes.map((recipe) => {
           return (
-            <Link href={`/recipe/${recipe._id}`}>
+            <Link key={recipe._id} href={`/recipe/${recipe._id}`}>
               <Card>
                 <Image src={recipe.imageUrl} />
                 <Title>{recipe.title}</Title>

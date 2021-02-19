@@ -33,21 +33,29 @@ const Left = styled(FlexAligner)`
 `
 
 const Right = styled(FlexAligner)`
+  position: relative;
 `
 
 const Title = styled.h1`
-font-weight: bold;
+  font-weight: 600;
+  font-size: 48px;
+  margin: 0;
+  font-family: 'Newsreader', sans-serif;
 `
+
 const Subtitle = styled.h2`
-font-weight: bold;
+font-weight: 400;
 padding: 20px 0;
 margin: 20px 0 ;
 border-bottom: 1px solid black;
+font-family: 'Newsreader', sans-serif;
 `
 
 
 const IngredientsWrap = styled.div`
   padding: 0 30px ;
+  max-width: 800px;
+  margin: 0 auto;
 
 `
 const Ingredient = styled.p`
@@ -55,15 +63,22 @@ const Ingredient = styled.p`
 
 const StepsWrap = styled.div`
   padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
 `
+
 const StepWrap = styled.div`
 `
+
 const StepTitle = styled.h3`
-font-weight: bold;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
 `
 
 
 const StepText = styled.p`
+  font-family: 'Newsreader', sans-serif;
 `
 
 
@@ -90,7 +105,7 @@ export default function Page() {
           <Title>{recipe.title}</Title>
         </Left>
         <Right>
-          <Image src={recipe.imageUrl} />
+          <Image src={recipe.imageUrl || 'https://images.unsplash.com/photo-1525159831892-59d292d558b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80'} />
         </Right>
       </HeaderWrap>
       <IngredientsWrap>

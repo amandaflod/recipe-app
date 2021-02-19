@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons'
 import { Layout } from '../components/Layout'
+import Router from 'next/router'
 
 const Title = styled.h1`
   text-align: center;
@@ -108,9 +109,8 @@ export default function Create() {
           ingredients
         })
       })
-      // .then(() => {
-      //   window.location.reload()
-      // })
+      .then(res => res.json())
+      .then(newRecipe => Router.push(`/recipe/${newRecipe._id}`))
       .catch((err) => console.log('error', err))
   }
 
